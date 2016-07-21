@@ -26,6 +26,10 @@
                      <label for="todo">TODO</label>
                      <p class="form-control-static">{{$todo->todo}}</p>
                 </div>
+                <div class="form-group">
+                     <label for="todo">DUE DATE</label>
+                     <p class="form-control-static">{{$todo->due_date}}</p>
+                </div>
             </form>
 
             <a class="btn btn-link" href="{{ route('todos.index') }}"><i class="glyphicon glyphicon-backward"></i>  Back</a>

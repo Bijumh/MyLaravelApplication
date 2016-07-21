@@ -16,3 +16,5 @@ Route::get('/', function () {
 });
 
 Route::resource("todos","TodoController");
+Route::resource("people","PersonController");
+

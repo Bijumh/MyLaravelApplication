@@ -126,6 +126,7 @@ return [
     'providers' => [
 
 		Laralib\L5scaffold\GeneratorsServiceProvider::class,
+        Laracasts\Generators\GeneratorsServiceProvider::class,
 		
         /*
          * Laravel Framework Service Providers...

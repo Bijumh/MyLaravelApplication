@@ -65,8 +65,7 @@ class PersonController extends Controller {
         $person->height = $request->input("height");
         $person->weight = $request->input("weight");
 
-        
-		$person->save();
+        $person->save();
 
 		return redirect()->route('people.index')->with('message', 'Item created successfully.');
 	}
@@ -132,6 +131,9 @@ class PersonController extends Controller {
         $person->height = $request->input("height");
         $person->weight = $request->input("weight");
 
+        echo $person->dob;
+        die();
+		
 		$person->save();
 
 		return redirect()->route('people.index')->with('message', 'Item updated successfully.');

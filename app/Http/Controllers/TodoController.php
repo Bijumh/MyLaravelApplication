@@ -41,6 +41,7 @@ class TodoController extends Controller {
 		$todo = new Todo();
 
 		$todo->todo = $request->input("todo");
+        $todo->due_date = date('Y-m-d', strtotime($request->input("due_date")));
 
 		$todo->save();
 
@@ -85,6 +86,7 @@ class TodoController extends Controller {
 		$todo = Todo::findOrFail($id);
 
 		$todo->todo = $request->input("todo");
+        $todo->due_date = date('Y-m-d', strtotime($request->input("due_date")));
 
 		$todo->save();
 

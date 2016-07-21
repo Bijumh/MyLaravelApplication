@@ -25,6 +25,13 @@
                         <span class="help-block">{{ $errors->first("todo") }}</span>
                        @endif
                     </div>
+                <div class="form-group @if($errors->has('due_date')) has-error @endif">
+                       <label for="todo-field">Due Date</label>
+                    <input type="text" id="due-date-field" name="due_date" class="form-control date-picker" value="{{ $todo->due_date }}"/>
+                       @if($errors->has("due_date"))
+                        <span class="help-block">{{ $errors->first("due_date") }}</span>
+                       @endif
+                    </div>
                 <div class="well well-sm">
                     <button type="submit" class="btn btn-primary">Save</button>
                     <a class="btn btn-link pull-right" href="{{ route('todos.index') }}"><i class="glyphicon glyphicon-backward"></i>  Back</a>
