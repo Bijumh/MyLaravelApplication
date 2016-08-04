@@ -18,3 +18,7 @@ Route::get('/', function () {
 Route::resource("todos","TodoController");
 Route::resource("people","PersonController");
 
+
+Route::auth();
+
+Route::get('/home', 'HomeController@index');
