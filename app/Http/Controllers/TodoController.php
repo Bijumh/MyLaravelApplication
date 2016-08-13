@@ -18,10 +18,18 @@ class TodoController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function index(Request $request)
 	{
-		$todos = Todo::orderBy('id', 'desc')->paginate(10);
+        $search = $request->input("search");
+        
+        if ($search != '') {
+            $todos = Todo::where('todo', 'LIKE', '%'. $search .'%');
+            $todos = $todos->paginate(10);
 
+        } else {
+            $todos = Todo::orderBy('id', 'desc')->paginate(10);
+        }
+		
 		return view('todos.index', compact('todos'));
 	}
 

@@ -18,10 +18,19 @@ class PersonController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function index(Request $request)
 	{
-		$people = Person::orderBy('id', 'desc')->paginate(10);
+        $search = $request->input("search");
+        
+        if ($search != '') {
+            $people = Person::where('first_name', 'LIKE', '%'. $search .'%')->
+                orWhere('last_name', 'LIKE', '%'. $search .'%');
+            $people = $people->paginate(10);
 
+        } else {
+            $people = Person::orderBy('id', 'desc')->paginate(10);
+        }
+		
 		return view('people.index', compact('people'));
 	}
 

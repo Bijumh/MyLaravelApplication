@@ -11,6 +11,20 @@
 @endsection
 
 @section('content')
+   <form action="{{ route('people.index') }}" method="GET">
+        <table class="table table-condensed">
+            <tr>
+                <td>
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+                    <input type="text" id="search-field" name="search" class="form-control"/>
+                </td>
+                <td>
+                    <button type="submit" class="btn btn-primary">Filter</button>
+                </td>
+            </tr>
+       </table>
+    </form>
+    
     <div class="row">
         <div class="col-md-12">
             @if($people->count())
